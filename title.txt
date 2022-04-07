@@ -1,0 +1,1 @@
+Tracking freely foraging mice using computer vision, statistical inference and learning techniques: methods, evaluations and a Python toolbox.
