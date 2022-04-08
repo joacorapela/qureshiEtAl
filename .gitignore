@@ -1,3 +1,4 @@
 *~
+*.bak
 onePagePDF/*
 !onePagePDF/*.tex
