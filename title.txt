@@ -1,1 +1,0 @@
-Tracking freely moving mice using computer vision, statistical inference and learning techniques: methods, evaluations, Python code and sample data.
