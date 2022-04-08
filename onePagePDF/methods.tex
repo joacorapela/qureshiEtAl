@@ -1,38 +1,31 @@
 
 \noindent\textbf{Computer vision}: 
 %
-We extracted the mouse position from each video frame using thresholding,
-dilation, contour finding functions in the OpenCV library~\cite{openCV}.
+We extracted the mouse position in each video frame using thresholding,
+dilation, contour finding functions in the OpenCV library.
 
-\noindent\textbf{Linear dynamical system model}:
+\noindent\textbf{Linear dynamical system (LDS) model}:
 %
-We used linear a dynamical system with a six-dimensional state space
+We used a linear dynamical system with a six-dimensional state space
 $\mathbf{x}(n)=[x(n), \dot{x}(n), \ddot{x}(n), y(n), \dot{y}(n),
-\ddot{y}(n)]^\intercal$ (representing the true positions, velocities and
-accelerations, along the vertical and horizontal axes)
-to model position measurments $\mathbf{y}(n)=[m_x(n), m_y(n)]^\intercal$.
-The state equation dynamics followed
-the Discrete Wiener Process Accceleration model~\cite{barShalomEtAl01}.
+\ddot{y}(n)]^\intercal$ to model position measurments $\mathbf{y}(n)=[m_x(n),
+m_y(n)]^\intercal$.  The state equation dynamics followed the Discrete Wiener
+Process Accceleration model~\cite{c1}.
 
 \noindent\textbf{Statistical inference}:
 %
-Using the Kalman filter and Kalman smoothing algorithm~\cite{kalman61} we
-inferred denoised positions, velocities and accelerations (i.e., $\mathbf{x}$)
+Using the Kalman filter and Kalman smoothing algorithms\cite{c2} we
+inferred denoised positions, velocities and accelerations (i.e., $\mathbf{x}(n)$)
 from noisy position measurements (i.e., $\mathbf{y}(n)$).
 
 \noindent\textbf{Statistical learning}
 %
-The linear dynamical sytems model contained free parameters (the variance of
-the state acceleration discrete Wiener process, the variances of the horizontal
-and vertical measurements, and the mean and of the diagonal value of the
-covariance of the initial state). We set their values to those that maximized
-the likelihood~\cite{shumwayAndStoffer16} of the position measurements.
-Maximization was performed using the \texttt{optim} library of
-PyTorch\cite{pytorch}.
+The linear dynamical sytems model contained free parameters We set their values
+to those that maximized the likelihood of the position measurements under the
+LDS model~\cite{c2}, using the \texttt{optim} library of PyTorch.
 
 \noindent\textbf{Simulations}
 %
 To assess the quality of the previous methods, we sampled states
-($\mathbf{x}(n)$) and position measurements ($\mathbf{y}(n)$) from the model in
-Section~\ref{sec:ldsModel}. We then evaluated the performance of the previous
-methods to recover the sampled states from the sampled positions.
+($\mathbf{x}(n)$) and position measurements ($\mathbf{y}(n)$) from the LDS
+model and attempted to recover the states from the measurements.
