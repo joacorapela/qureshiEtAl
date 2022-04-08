@@ -8,9 +8,9 @@ dilation, contour finding functions in the OpenCV library.
 %
 We used a linear dynamical system with a six-dimensional state space
 $\mathbf{x}(n)=[x(n), \dot{x}(n), \ddot{x}(n), y(n), \dot{y}(n),
-\ddot{y}(n)]^\intercal$ to model position measurments $\mathbf{y}(n)=[m_x(n),
+\ddot{y}(n)]^\intercal$ to model position measurements $\mathbf{y}(n)=[m_x(n),
 m_y(n)]^\intercal$.  The state equation dynamics followed the Discrete Wiener
-Process Accceleration model~\cite{c1}.
+Process Acceleration model~\cite{c1}.
 
 \noindent\textbf{Statistical inference}:
 %
@@ -20,8 +20,8 @@ from noisy position measurements (i.e., $\mathbf{y}(n)$).
 
 \noindent\textbf{Statistical learning}
 %
-The linear dynamical sytems model contained free parameters We set their values
-to those that maximized the likelihood of the position measurements under the
+The linear dynamical systems model contained free parameters We set their values
+to those that maximised the likelihood of the position measurements under the
 LDS model~\cite{c2}, using the \texttt{optim} library of PyTorch.
 
 \noindent\textbf{Simulations}
