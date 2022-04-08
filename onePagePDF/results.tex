@@ -1,0 +1,43 @@
+
+We measure the root-means-square error between the true positions, velocities
+and accelerations and those estimated by the Kalman filter, Kalman smoother and
+a baseline finite differences method. We compared the performance of Kalman
+filters and smoothers with manually chosen and learned parameters (maximum
+likelihood).
+
+\noindent\textbf{Simulations}
+%
+Despite large amounts of noise introduced into the simulated measurements, and
+the missing observations, both the Kalman filter and smoother yielded accurate
+estimates of true positions.
+%
+The Kalman filter and smoother provided more accurate estimates of velocities
+and accelerations than the baseline finite differences method.
+%
+We also obtained more accurate estimates with learned than with manually set
+parameters.
+%
+Estimates by the Kalman smoother were more accurate than those by the Kalman
+filter, specially for missing observations.
+
+\noindent\textbf{Mouse tracking}
+%
+The interactive figure shows the positions extracted with the computer vision
+functions and those inferred by the Kalman filter and smoother. At time with
+missing observations (i.e., missing black dots) the Kalman smoother provides
+more reasonable position estimates than the Kalman filter, that sometimes goes
+astray.
+
+\begin{figure}
+    \begin{center}
+        \href{http://www.gatsby.ucl.ac.uk/~rapela/fwg/reports/learning/figures/positions_smoothed_session003_start0.00_end15548.27_startPosition0_numPosition10000_pos.html}{\includegraphics[width=3in]{figures/positions_smoothed_session003_start0.00_end15548.27_startPosition0_numPosition10000_pos.png}}
+        \caption{Positions measured with the computer vision functions (black) and Kalman filtered (red) and smoothed (green) positions. Click on the figure to access its interactive version.}
+    \end{center}
+\end{figure}
+
+As with simulated data, estimates of velocities and acceleration by the
+baseline finite differences method appeared noisy, and those from the Kalman
+filter and smoother seemed less noisy. Extrapolating from the simulation results,
+we infer that, also for the mouse tracking, Kalman filter and smoother velocity
+and acceleration estimates are more accurate than those of the finite
+difference method.
