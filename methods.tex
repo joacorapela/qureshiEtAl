@@ -6,26 +6,26 @@ dilation, contour finding functions in the OpenCV library.
 
 \noindent\textbf{Linear dynamical system (LDS) model}:
 %
-We used a linear dynamical system with a six-dimensional state space
+we used a linear dynamical system with a six-dimensional state space
 $\mathbf{x}(n)=[x(n), \dot{x}(n), \ddot{x}(n), y(n), \dot{y}(n),
-\ddot{y}(n)]^\intercal$ to model position measurements $\mathbf{y}(n)=[m_x(n),
-m_y(n)]^\intercal$.  The state equation dynamics followed the Discrete Wiener
+\ddot{y}(n)]^\intercal$ and mouse position measurements $\mathbf{y}(n)=[m_x(n),
+m_y(n)]^\intercal$.  The state dynamics followed the Discrete Wiener
 Process Acceleration model~\cite{c1}.
 
 \noindent\textbf{Statistical inference}:
 %
-Using the Kalman filter and Kalman smoothing algorithms\cite{c2} we
+using the Kalman filter and smoothing algorithms\cite{c2} we
 inferred denoised positions, velocities and accelerations (i.e., $\mathbf{x}(n)$)
 from noisy position measurements (i.e., $\mathbf{y}(n)$).
 
-\noindent\textbf{Statistical learning}
+\noindent\textbf{Statistical learning}:
 %
-The linear dynamical systems model contained free parameters We set their values
+the linear dynamical systems model contained free parameters We set their values
 to those that maximised the likelihood of the position measurements under the
 LDS model~\cite{c2}, using the \texttt{optim} library of PyTorch.
 
-\noindent\textbf{Simulations}
+\noindent\textbf{Simulations}:
 %
-To assess the quality of the previous methods, we sampled states
+to assess the quality of the previous methods, we sampled states
 ($\mathbf{x}(n)$) and position measurements ($\mathbf{y}(n)$) from the LDS
 model and attempted to recover the states from the measurements.
